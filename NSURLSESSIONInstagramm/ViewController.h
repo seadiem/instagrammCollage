@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-
+@interface ViewController : UIViewController <UIWebViewDelegate, NSURLSessionDataDelegate>
+@property CGSize resolution;
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
 @end
 

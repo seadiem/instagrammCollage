@@ -14,6 +14,10 @@
 		048FD1D21AF7BAF100A6BB03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048FD1D11AF7BAF100A6BB03 /* Images.xcassets */; };
 		048FD1D51AF7BAF100A6BB03 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048FD1D31AF7BAF100A6BB03 /* LaunchScreen.xib */; };
 		048FD1E11AF7BAF100A6BB03 /* NSURLSESSIONInstagrammTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048FD1E01AF7BAF100A6BB03 /* NSURLSESSIONInstagrammTests.m */; };
+		04EF0EED1B2DE8760013BE09 /* MTVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EF0EEC1B2DE8760013BE09 /* MTVView.m */; };
+		04F8A37A1B2C8C53004E0185 /* MTVCoord.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3791B2C8C53004E0185 /* MTVCoord.m */; };
+		04FDEF5B1B52822A004526BE /* AngillaTattoo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04FDEF5A1B52822A004526BE /* AngillaTattoo.ttf */; };
+		04FE61B01B37D7F4005040DA /* imageHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FE61AF1B37D7F4005040DA /* imageHolder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,12 @@
 		048FD1DA1AF7BAF100A6BB03 /* NSURLSESSIONInstagrammTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSURLSESSIONInstagrammTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		048FD1DF1AF7BAF100A6BB03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048FD1E01AF7BAF100A6BB03 /* NSURLSESSIONInstagrammTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSURLSESSIONInstagrammTests.m; sourceTree = "<group>"; };
+		04EF0EEB1B2DE8760013BE09 /* MTVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTVView.h; sourceTree = "<group>"; };
+		04EF0EEC1B2DE8760013BE09 /* MTVView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTVView.m; sourceTree = "<group>"; };
+		04F8A3781B2C8C53004E0185 /* MTVCoord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTVCoord.h; sourceTree = "<group>"; };
+		04F8A3791B2C8C53004E0185 /* MTVCoord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTVCoord.m; sourceTree = "<group>"; };
+		04FDEF5A1B52822A004526BE /* AngillaTattoo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AngillaTattoo.ttf; sourceTree = "<group>"; };
+		04FE61AF1B37D7F4005040DA /* imageHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imageHolder.png; path = images/imageHolder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,12 @@
 				048FD1C91AF7BAF000A6BB03 /* AppDelegate.m */,
 				048FD1CB1AF7BAF000A6BB03 /* ViewController.h */,
 				048FD1CC1AF7BAF000A6BB03 /* ViewController.m */,
+				04FDEF5A1B52822A004526BE /* AngillaTattoo.ttf */,
+				04EF0EEB1B2DE8760013BE09 /* MTVView.h */,
+				04EF0EEC1B2DE8760013BE09 /* MTVView.m */,
+				04F8A3781B2C8C53004E0185 /* MTVCoord.h */,
+				04F8A3791B2C8C53004E0185 /* MTVCoord.m */,
+				04FE61AF1B37D7F4005040DA /* imageHolder.png */,
 				048FD1CE1AF7BAF100A6BB03 /* Main.storyboard */,
 				048FD1D11AF7BAF100A6BB03 /* Images.xcassets */,
 				048FD1D31AF7BAF100A6BB03 /* LaunchScreen.xib */,
@@ -202,6 +218,8 @@
 				048FD1D01AF7BAF100A6BB03 /* Main.storyboard in Resources */,
 				048FD1D51AF7BAF100A6BB03 /* LaunchScreen.xib in Resources */,
 				048FD1D21AF7BAF100A6BB03 /* Images.xcassets in Resources */,
+				04FDEF5B1B52822A004526BE /* AngillaTattoo.ttf in Resources */,
+				04FE61B01B37D7F4005040DA /* imageHolder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +240,8 @@
 				048FD1CD1AF7BAF000A6BB03 /* ViewController.m in Sources */,
 				048FD1CA1AF7BAF000A6BB03 /* AppDelegate.m in Sources */,
 				048FD1C71AF7BAF000A6BB03 /* main.m in Sources */,
+				04F8A37A1B2C8C53004E0185 /* MTVCoord.m in Sources */,
+				04EF0EED1B2DE8760013BE09 /* MTVView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +432,7 @@
 				048FD1E61AF7BAF200A6BB03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		048FD1E71AF7BAF200A6BB03 /* Build configuration list for PBXNativeTarget "NSURLSESSIONInstagrammTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +441,7 @@
 				048FD1E91AF7BAF200A6BB03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
