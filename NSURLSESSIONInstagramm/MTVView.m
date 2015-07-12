@@ -103,14 +103,15 @@
 }
 
 -(void)drawRect:(CGRect)rect{
-    UIGraphicsBeginImageContextWithOptions([[UIScreen mainScreen] bounds].size, NO, [[UIScreen mainScreen] scale]);
+    //UIGraphicsBeginImageContextWithOptions([[UIScreen mainScreen] bounds].size, NO, [[UIScreen mainScreen] scale]);
+    UIGraphicsBeginImageContextWithOptions([self bounds].size, NO, [[UIScreen mainScreen] scale]);
     //[self drawPathes];
     [self drawClipImagesWithContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     [self setBackGroundImage:image];
     image = nil;
     UIGraphicsEndImageContext();
-    [[self backGroundImage] drawAtPoint:CGPointMake(3, 3)];
+    [[self backGroundImage] drawAtPoint:CGPointMake(0, 0)];
     
 //    UIGraphicsBeginImageContextWithOptions([[UIScreen mainScreen] bounds].size, NO, [[UIScreen mainScreen] scale]);
 //    [self drawInContext:UIGraphicsGetCurrentContext()];
@@ -143,27 +144,29 @@
     CGContextSaveGState(context);
     
     [pathOne addClip];
-    CGContextTranslateCTM(context, xposOne, yposOne);
+    CGContextTranslateCTM(context, xposOne + 130, yposOne + 100);
     CGContextRotateCTM(context, [self angleOne]);
-    CGRect transrect = CGRectMake(-[self imageSiaze].width/4, -[self imageSiaze].height/4, [self imageSiaze].width/2, [self imageSiaze].height/2);
+    CGRect transrect = CGRectMake(-[self imageSiaze].width*0.9f + ([self imageSiaze].width*0.9f)/2, -[self imageSiaze].height*0.9f + ([self imageSiaze].height*0.9f)/2, [self imageSiaze].width*0.9f, [self imageSiaze].height*0.9f);
     [[self imageOne] drawInRect:transrect];
     
     CGContextRestoreGState(context);
     CGContextSaveGState(context);
     
     [pathTwo addClip];
-    CGContextTranslateCTM(context, xposTwo, yposTwo + 200);
+    CGContextTranslateCTM(context, xposTwo + 130, yposTwo + 250);
     CGContextRotateCTM(context, [self angleTwo]);
-    CGRect transrectTwo = CGRectMake(-[self imageSiaze].width/4, -[self imageSiaze].height/4, [self imageSiaze].width/2, [self imageSiaze].height/2);
+    //CGRect transrectTwo = CGRectMake(-[self imageSiaze].width/4, -[self imageSiaze].height/4, [self imageSiaze].width/2, [self imageSiaze].height/2);
+     CGRect transrectTwo = CGRectMake(-[self imageSiaze].width*0.9f + ([self imageSiaze].width*0.9f)/2, -[self imageSiaze].height*0.9f + ([self imageSiaze].height*0.9f)/2, [self imageSiaze].width*0.9f, [self imageSiaze].height*0.9f);
     [[self imageTwo] drawInRect:transrectTwo];
 
     CGContextRestoreGState(context);
     CGContextSaveGState(context);
     
     [pathThree addClip];
-    CGContextTranslateCTM(context, xposThree, yposThree + 400);
+    CGContextTranslateCTM(context, xposThree + 130, yposThree + 400);
     CGContextRotateCTM(context, [self angleThree]);
-    CGRect transrectThree = CGRectMake(-[self imageSiaze].width/4, -[self imageSiaze].height/4, [self imageSiaze].width/2, [self imageSiaze].height/2);
+    //CGRect transrectThree = CGRectMake(-[self imageSiaze].width/4, -[self imageSiaze].height/4, [self imageSiaze].width/2, [self imageSiaze].height/2);
+     CGRect transrectThree = CGRectMake(-[self imageSiaze].width*0.9f + ([self imageSiaze].width*0.9f)/2, -[self imageSiaze].height*0.9f + ([self imageSiaze].height*0.9f)/2, [self imageSiaze].width*0.9f, [self imageSiaze].height*0.9f);
     [[self imageThree] drawInRect:transrectThree];
     
     CGContextRestoreGState(context);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04034F6B1B531347004C8E24 /* imageHolder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04034F6A1B531347004C8E24 /* imageHolder2.png */; };
 		048FD1C71AF7BAF000A6BB03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 048FD1C61AF7BAF000A6BB03 /* main.m */; };
 		048FD1CA1AF7BAF000A6BB03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 048FD1C91AF7BAF000A6BB03 /* AppDelegate.m */; };
 		048FD1CD1AF7BAF000A6BB03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048FD1CC1AF7BAF000A6BB03 /* ViewController.m */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04034F6A1B531347004C8E24 /* imageHolder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imageHolder2.png; path = images/imageHolder2.png; sourceTree = "<group>"; };
 		048FD1C11AF7BAF000A6BB03 /* NSURLSESSIONInstagramm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSURLSESSIONInstagramm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048FD1C51AF7BAF000A6BB03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048FD1C61AF7BAF000A6BB03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				04F8A3781B2C8C53004E0185 /* MTVCoord.h */,
 				04F8A3791B2C8C53004E0185 /* MTVCoord.m */,
 				04FE61AF1B37D7F4005040DA /* imageHolder.png */,
+				04034F6A1B531347004C8E24 /* imageHolder2.png */,
 				048FD1CE1AF7BAF100A6BB03 /* Main.storyboard */,
 				048FD1D11AF7BAF100A6BB03 /* Images.xcassets */,
 				048FD1D31AF7BAF100A6BB03 /* LaunchScreen.xib */,
@@ -215,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04034F6B1B531347004C8E24 /* imageHolder2.png in Resources */,
 				048FD1D01AF7BAF100A6BB03 /* Main.storyboard in Resources */,
 				048FD1D51AF7BAF100A6BB03 /* LaunchScreen.xib in Resources */,
 				048FD1D21AF7BAF100A6BB03 /* Images.xcassets in Resources */,

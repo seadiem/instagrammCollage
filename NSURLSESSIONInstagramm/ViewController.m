@@ -5,12 +5,12 @@
 //  Created by mac on 04.05.15.
 //  Copyright (c) 2015 soft eng. All rights reserved.
 //
-
+#import <MessageUI/MessageUI.h>
 #import "ViewController.h"
 #import "MTVCoord.h"
 #import "MTVView.h"
 
-@interface ViewController () <UITextFieldDelegate>
+@interface ViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate,  UINavigationControllerDelegate>
 {
     BOOL inInsta;
     BOOL mustInstaLoad;
@@ -61,7 +61,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIFont *angilla = [UIFont fontWithName:@"AngillaTattooPersonalUse" size:20.0f];
+    UIFont *angilla = [UIFont fontWithName:@"AngillaTattooPersonalUse" size:30.0f];
     UIFont *angillaBig = [UIFont fontWithName:@"AngillaTattooPersonalUse" size:50.0f];
     
 //    for (NSString *familyName in [UIFont familyNames]) {
@@ -90,7 +90,7 @@
     [[self transitionView] setBackgroundColor:[UIColor colorWithRed:102/255.f green:166/255.f blue:10/255.f alpha:1.0]];
     [[self canvasView] addSubview:[self transitionView]];
     
-    CGRect predMainRect = CGRectMake(5, 0, resolution.width - 50, resolution.height - 70);
+    CGRect predMainRect = CGRectMake(5, 0, resolution.width - 50, resolution.height - 50);
     UIColor *blueColor = [UIColor colorWithRed:64/255.f green:211/255.f blue:228/255.f alpha:1.0];
     [self setPredBackgroundView:[[UIView alloc] initWithFrame:predMainRect]];
     [[self predBackgroundView] setBackgroundColor:blueColor];
@@ -121,6 +121,7 @@
     CGRect rectButTonThree = CGRectMake(0, 45, [[self predBackgroundView] bounds].size.width, 100);
     UIButton *instaButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [instaButton setFrame:rectButTonThree];
+    [instaButton setFont:[UIFont systemFontOfSize:30]];
     [instaButton setTitle:@"Login" forState:UIControlStateNormal];
     [instaButton setTintColor:[UIColor whiteColor]];
     [instaButton setBackgroundColor:[UIColor colorWithRed:(68 + 20)/255.f green:(215 + 20)/255.f blue:(233 + 20)/255.f alpha:8.0]];
@@ -153,7 +154,7 @@
     
     //---Instagram View (Brown)
     [self setMustIstaLoad:NO];
-    CGRect instagramRect = CGRectMake(3, 103, resolution.width - 56, resolution.height - 170);
+    CGRect instagramRect = CGRectMake(3, 103, resolution.width - 56, resolution.height - 180);
     [self setInstagramView:[[UIView alloc] initWithFrame:instagramRect]];
     UIColor *instaColor = [UIColor colorWithRed:121/255.f green:71/255.f blue:16/255.f alpha:1.0];
     [[self instagramView] setBackgroundColor:instaColor];
@@ -180,14 +181,14 @@
     //[[self nameField] becomeFirstResponder];
     
     //---Animation Button
-    CGRect instButtonrect = CGRectMake(instagramRect.size.width / 2 - 250 / 2, 10, 250, 40);
+    CGRect instButtonrect = CGRectMake(instagramRect.size.width / 2 - 260 / 2, 5, 260, 55);
     UIButton *trigAnimation = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [trigAnimation setFrame:instButtonrect];
     [trigAnimation setFont:angilla];
     [trigAnimation setTitle:@"Trig Animation" forState:UIControlStateNormal];
     [trigAnimation setTintColor:[UIColor whiteColor]];
     [trigAnimation addTarget:self action:@selector(diluting:) forControlEvents:UIControlEventTouchUpInside];
-    [trigAnimation setBackgroundColor:[UIColor grayColor]];
+    [trigAnimation setBackgroundColor:[UIColor darkGrayColor]];
     [self setAnimationButton:trigAnimation];
     [[self dilutingView] addSubview:[self animationButton]];
     
@@ -202,7 +203,7 @@
     //------setup mini views
     CGFloat xpos = 0;
     CGFloat ypos = 0;
-    for (int i = 0; i < 6; i ++) {
+    for (int i = 0; i < 8; i ++) {
         
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panning:)];
         
@@ -224,8 +225,8 @@
         }
     }
     //------setup drawning view
-    CGRect drawingRect = CGRectMake(61, 0, [[self instagramView] bounds].size.width - 61, [[self instagramView] bounds].size.height - 5);
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"imageHolder.png" ofType:nil];
+    CGRect drawingRect = CGRectMake(61, 0, [[self instagramView] bounds].size.width - 61, [[self instagramView] bounds].size.height);
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"imageHolder2.png" ofType:nil];
     UIImage *img = [UIImage imageWithContentsOfFile:imagePath];
     MTVView *drawingView = [[MTVView alloc] initWithFrame:drawingRect andImage:img];
     [drawingView setTag:100];
@@ -243,7 +244,7 @@
     [[self instaCanvasView] addSubview:resetDefaults];
     
     //------- send to e-mail
-    CGRect emailbuttonRect = CGRectMake(103, 0, instaCanvas.size.width - 106, 40);
+    CGRect emailbuttonRect = CGRectMake(103, 0, instaCanvas.size.width - 110, 40);
     UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [sendButton setBackgroundColor:[UIColor colorWithRed:45/255.f green:45/255.f blue:45/255.f alpha:1.0]];
     [sendButton setFrame:emailbuttonRect];
@@ -373,7 +374,8 @@
     if ([dataArray count] == 0) {
         NSLog(@" user not found");
         [[self nameField] setText:@""];
-        [[self nameField] setPlaceholder:@" user not found"];
+        [[self nameField] setPlaceholder:@"user not found"];
+        [[self animationButton] setTitle:@"user not found" forState:UIControlStateNormal];
     } else {
         NSLog(@"user founded");
         NSDictionary *profile = [dataArray objectAtIndex:0];
@@ -426,12 +428,14 @@
     if ([jsonDictopnary objectForKey:@"data"] == nil) {
         NSLog(@"you are not a friends");
         [[self nameField] setPlaceholder:@"you are not a friends"];
+        [[self animationButton] setTitle:@"you are not a friends" forState:UIControlStateNormal];
     } else {
     NSArray *array = [jsonDictopnary objectForKey:@"data"];
     NSLog(@"%lu", (unsigned long)[array count]);
         if ([array count] == 0) {
             NSLog(@"gallery not exist");
             [[self nameField] setPlaceholder:@"gallery not exist"];
+            [[self animationButton] setTitle:@"gallery not exist" forState:UIControlStateNormal];
         } else {
             for (int i = 0; i < [array count] - 1; i ++) {
             NSDictionary *image = [array objectAtIndex:i];
@@ -548,7 +552,7 @@
     //NSLog(@"%@", array);
    [self setLinkArray:array];
     
-   for (int j = 0; j < 4; j ++) {
+   for (int j = 0; j < 8; j ++) {
         [[[self epheralSession] dataTaskWithURL:[NSURL URLWithString:[array objectAtIndex:j]]
                               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                   NSLog(@"loading images");
@@ -765,8 +769,37 @@
     MTVView *drawningView = (MTVView *)[[self instaCanvasView] viewWithTag:100];
     NSData *jpgdata = UIImageJPEGRepresentation([drawningView backGroundImage], 0.5);
     [jpgdata writeToFile:filePath atomically:YES];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        [self displayMailComposerSheetWithData:jpgdata];
+    }
 }
 
+- (void)displayMailComposerSheetWithData:(NSData *)jpeg{
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    [picker setMailComposeDelegate:self];
+    
+    [picker setSubject:@"my collage"];
+    
+    // Set up recipients
+    NSArray *toRecipients = [NSArray arrayWithObject:@""];
+    [picker setToRecipients:toRecipients];
+    
+    // Attach an image to the email
+    [picker addAttachmentData:jpeg mimeType:@"image/jpeg" fileName:@"collage.jpg"];
+    
+    // Fill out the email body text
+    NSString *emailBody = @"Look at my collage!";
+    [picker setMessageBody:emailBody isHTML:NO];
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    NSLog(@"dimiss");
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
